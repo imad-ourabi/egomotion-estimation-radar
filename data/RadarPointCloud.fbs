@@ -1,0 +1,32 @@
+/*
+ * This file is part of project link.developers/ld-node-radar-speed-estimation-poc.
+ * It is copyrighted by the contributors recorded in the version control history of the file,
+ * available from its original location https://github.com/link-developers/ld-node-radar-speed-estimation-poc.
+ *
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+
+include "GenericMatrix3D.fbs";
+
+namespace link_dev;
+
+table RadarPointCloud {
+	timestamp: int64; 					//timestamp of packing pc data into fb, publish timestamp, nanoseconds since Unix epoch
+	timestampPc: int64; 				//timestamp of pc from radar
+	pcLen: uint32; 						//length of point cloud vector
+	radarId: uint32;					//radar id, needs to be set
+	lostFrames: uint32;					//number of point cloud frames that get lost
+	
+	pointsXyz: link_dev.GenericMatrix3D; 			//local point data, float32/float64, 3 rows (x,y,z), N columns
+	pointsXyzGlobal: link_dev.GenericMatrix3D; 		//global point data, float32/float64, 3 rows (x,y,z), N columns
+
+	azimuth: link_dev.GenericMatrix3D;				//local azimuth in rad (1 row, N columns), float,  -pi .. pi
+	azimuthGlobal: link_dev.GenericMatrix3D;		//global azimuth in rad (1 row, N columns), float,  -pi .. pi
+	elevation: link_dev.GenericMatrix3D;			//local elevation in rad (1 row, N columns), float, -pi/2 .. pi/2
+	elevationGlobal: link_dev.GenericMatrix3D;		//global elevation in rad (1 row, N columns), float, -pi/2 .. pi/2
+	distance: link_dev.GenericMatrix3D;				//local distance in m (1 row, N columns), float
+	distanceGlobal: link_dev.GenericMatrix3D;		//global distance in m (1 row, N columns), float
+	power: link_dev.GenericMatrix3D;				//power (1 row, N columns), float
+	doppler: link_dev.GenericMatrix3D;				//doppler (1 row, N columns), float
+}

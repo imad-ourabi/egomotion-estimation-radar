@@ -1,0 +1,15 @@
+namespace link_dev;
+
+table EgoMotion 
+{
+	measuredSpeed: float32;             // Raw calculated speed in m/s
+    estimatedSpeed: float32;            // Speed after Kalman Filtering in m/s
+
+    measuredAcceleration: float32;      // Acceleration calculated from speed in m/s²
+    estimatedAcceleration: float32;     // Acceleration estimated by Kalman Filter m/s²
+
+    yawRate: float32;                   // Yaw rate in deg/s
+    pitchRate: float32;                 // Pitch rate in deg/s
+    rollRate: float32;                  // Roll rate in deg/s
+    heading: float32;                   // Overall heading between 0 and 360 degrees
+}

@@ -1,0 +1,23 @@
+{
+    "file-type": "link2-node-instance-2",
+    "$id": "l2node:/hugin-radar/sample-hugin",
+    "specification": "l2spec:/link_dev/new-node-hugin",
+    "pins": {
+        "hugin-radar-data-input": {
+          "subscriptions": {
+            "radar-point-cloud": [
+              {
+                "#": "l2offer:/radar-point-cloud"
+              }
+            ]
+          }
+        },
+        "ego-motion-output": {
+          "offers": {
+            "ego-motion": ["l2offer:/ego-motion-from-node"]
+          }
+        }
+      },
+    "user-configuration": {
+    }
+}

@@ -1,0 +1,34 @@
+// This file is part of project link.developers/ld-lib-generic-matrix.
+// It is copyrighted by the contributors recorded in the version control history of the file,
+// available from its original location https://github.com/link-developers/ld-lib-generic-matrix.
+//
+// SPDX-License-Identifier: MPL-2.0
+namespace link_dev;
+
+enum MatrixScalarType : uint8 {
+    NotSpecified = 0,
+    Float = 1,
+    Double = 2,
+    Int8 = 3,
+    Int16 = 4,
+    Int32 = 5,
+    Int64 = 6,
+    UInt8 = 7,
+    UInt16 = 8,
+    UInt32 = 9,
+    UInt64 = 10
+}
+
+enum StorageOrderType : uint8 {
+    ColumnMajor = 0,
+    RowMajor = 1
+}
+
+table GenericMatrix3D {
+    rows: uint32;
+    cols: uint32;
+    depth: uint32;
+    scalar_type: MatrixScalarType;
+    storage_order: StorageOrderType;
+    data_bytes: [uint8];
+}

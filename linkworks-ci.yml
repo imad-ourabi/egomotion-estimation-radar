@@ -1,0 +1,20 @@
+file_version: 1
+channel_sources:
+    - https://conda.linkworks.io/t/$LINKWORKS_PULL_TOKEN/get/link-developers
+    - https://conda.linkworks.io/t/$LINKWORKS_PULL_TOKEN/get/draive-release
+    - conda-forge
+channel_targets:
+    - link-developers
+project_location: 'git@github.com:imad-ourabi/new-node-hugin.git'
+
+# Python Link2 Node: all platforms (linux-aarch64 cross-compiled on linux-x64)
+build_matrix:
+    - target_platform: 'linux-64'
+      python: ['default']
+    - target_platform: 'linux-aarch64'
+      python: ['default']
+      build_platform: 'linux-64'
+    - target_platform: 'win-64'
+      python: ['default']
+
+verify_script: '.linkworks/verification/verify.py'

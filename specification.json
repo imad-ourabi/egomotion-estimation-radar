@@ -1,0 +1,35 @@
+{
+    "file-type": "link2-node-specification-2",
+    "$id": "l2spec:/link_dev/new-node-hugin",
+    "pins": {
+        "hugin-radar-data-input": {
+        "pin-type": "input",
+        "demands": {
+          "radar-point-cloud": {
+            "data-type": {
+              "schema-filename": "./data/RadarPointCloud.bfbs",
+              "table-name": "link_dev.RadarPointCloud"
+            }
+          }
+        }
+      },
+      "ego-motion-output": {
+        "pin-type": "output",
+        "supplies": {
+          "ego-motion": {
+            "data-type": {
+              "schema-filename": "./data/EgoMotion.bfbs",
+              "table-name": "link_dev.EgoMotion"
+            }
+          }
+        }
+      }
+     },
+    "user-configuration-schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+        },
+        "additionalProperties": false
+    }
+}
